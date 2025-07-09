@@ -1,57 +1,67 @@
 "use client";
 
 import { useState, useEffect } from 'react';
+import { setupSectionObserver } from '@/app/utils/section-observer';
 
 export function useActiveSection() {
   const [activeSection, setActiveSection] = useState<string>('');
 
   useEffect(() => {
-    const sections = document.querySelectorAll('section[id]');
-
-    // Function to check which section is currently active
     const determineActiveSection = () => {
-      let currentSection = '';
+      const sections = document.querySelectorAll('section[id]');
+      if (sections.length === 0) return;
 
-      // Calculate the threshold for the top 15% of the viewport
-      const topThreshold = window.innerHeight * 0.15;
+      const viewportHeight = window.innerHeight;
 
-      // Find the section that is in the top 15% of the viewport
-      for (const section of sections) {
+      let maxVisibleSection: Element | null = null;
+      let maxVisibleArea = 0;
+
+      sections.forEach(section => {
         const rect = section.getBoundingClientRect();
 
-        // Section is considered active if:
-        // 1. Its top edge is between the top of viewport and the 15% threshold, OR
-        // 2. Its top edge is above viewport but bottom edge is still visible
-        if ((rect.top >= 0 && rect.top <= topThreshold) || (rect.top <= 0 && rect.bottom > 0)) {
-          currentSection = section.id;
-          break;
+        const visibleTop = Math.max(0, rect.top);
+        const visibleBottom = Math.min(viewportHeight, rect.bottom);
+        const visibleHeight = Math.max(0, visibleBottom - visibleTop);
+
+        if (visibleHeight > maxVisibleArea) {
+          maxVisibleArea = visibleHeight;
+          maxVisibleSection = section;
+        }
+
+        else if (visibleHeight === maxVisibleArea && maxVisibleSection) {
+          const currentTop = Math.abs(rect.top);
+          const prevTop = Math.abs(maxVisibleSection.getBoundingClientRect().top);
+          if (currentTop < prevTop) {
+            maxVisibleSection = section;
+          }
+        }
+      });
+
+
+      if(maxVisibleSection != null){
+        if (maxVisibleSection && maxVisibleArea > 0) {
+          setActiveSection(`#${(maxVisibleSection as Element).id}`);
+        } else if (sections.length > 0) {
+          setActiveSection(`#${sections[0].id}`);
         }
       }
-
-      // If no section has passed the top yet, use the first section
-      if (!currentSection && sections.length > 0) {
-        currentSection = sections[0].id;
-      }
-
-      if (currentSection) {
-        setActiveSection(`#${currentSection}`);
-      }
     };
 
-    // Initial check on mount
-    determineActiveSection();
 
-    // Setup scroll event listener
-    window.addEventListener('scroll', determineActiveSection, { passive: true });
+    if (typeof window !== 'undefined') {
 
-    // Also run on resize as section positions may change
-    window.addEventListener('resize', determineActiveSection, { passive: true });
+      setTimeout(determineActiveSection, 300);
 
-    return () => {
-      // Clean up event listeners
-      window.removeEventListener('scroll', determineActiveSection);
-      window.removeEventListener('resize', determineActiveSection);
-    };
+      window.addEventListener('scroll', determineActiveSection, { passive: true });
+      window.addEventListener('resize', determineActiveSection, { passive: true });
+
+      return () => {
+        window.removeEventListener('scroll', determineActiveSection);
+        window.removeEventListener('resize', determineActiveSection);
+      };
+    }
+
+    return undefined;
   }, []);
 
   return activeSection;

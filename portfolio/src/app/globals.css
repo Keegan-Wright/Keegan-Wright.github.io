@@ -5,9 +5,71 @@
 .active .nav-indicator {
     width:4rem;
     --tw-bg-opacity:1;
-    background-color:rgb(226 232 240/var(--tw-bg-opacity))
+    background-color:rgb(192 132 252/var(--tw-bg-opacity))
 }
 .active .nav-text {
     --tw-text-opacity:1;
-    color:rgb(226 232 240/var(--tw-text-opacity))
+    color:rgb(192 132 252/var(--tw-text-opacity))
+}
+
+/* Animation helpers */
+.content-wrapper > * {
+    transition-property: opacity, transform;
+    transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Ensure sections have proper visibility for intersection observer */
+section {
+    min-height: 10vh;
+    scroll-margin-top: 2rem;
+}
+
+/* Help with section identification */
+section[id] {
+    position: relative;
+}
+
+section[id]::before {
+    content: '';
+    display: block;
+    height: 1px;
+    margin-top: -1px;
+    position: absolute;
+    top: 0;
+    visibility: hidden;
+}
+
+/* Smooth transitions for hover states */
+a {
+    transition: color 0.2s ease-in-out;
+}
+
+/* Purple hover effect for all nav links */
+.nav a:hover .nav-text,
+.nav a:focus-visible .nav-text {
+    color: rgb(192 132 252) !important;
+}
+
+.nav a:hover .nav-indicator,
+.nav a:focus-visible .nav-indicator {
+    background-color: rgb(192 132 252) !important;
+    width: 4rem;
+}
+
+/* Add some breathing room between sections */
+.experience-list > li:not(:last-child),
+.projects-list > li:not(:last-child) {
+    margin-bottom: 3rem;
+}
+
+/* Prevent content from disappearing during page transitions */
+@media (prefers-reduced-motion: reduce) {
+    .content-wrapper > *,
+    section,
+    .experience-list > li,
+    .projects-list > li {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
 }

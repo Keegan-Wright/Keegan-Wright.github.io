@@ -17,7 +17,7 @@ export enum PersonalProjectFields{
 export const PersonalProjectData: any = {
     [PersonalProjects.BudgetPlanner]:{
         [PersonalProjectFields.Name]: "Budget Planner",
-        [PersonalProjectFields.Description]: "My personal budget planner with open banking integration to consolidate all banking info in one central location. Providing utilities to set goals, household members, forecast finances, generate reports and tag transactions with additional information for easier filtering. This project is built with Avalonia, allowing for use on all platforms. Backed with an Aspire orchestrator and setup for easy self hosting with a docker compose file",
+        [PersonalProjectFields.Description]: "My personal budget planner with open banking integration to consolidate all banking info in one central location. Providing utilities to set goals, household members, forecast finances, generate reports and tag transactions with additional information for easier filtering. This project is built with Avalonia, allowing for use on all platforms. Backed with an Aspire orchestrator and setup for easy self hosting with a docker compose file.",
         [PersonalProjectFields.Technologies]: ["C#", ".NET", "Aspire", "Avalonia", "EF", "PostgreSQL", "Docker", "Redis", "Open Banking"],
         [PersonalProjectFields.GithubLink]: "https://github.com/Keegan-Wright/BudgetPlanner",
         [PersonalProjectFields.ImgSrc]: "/budget-planner.png",
