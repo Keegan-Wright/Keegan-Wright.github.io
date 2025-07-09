@@ -23,7 +23,7 @@ export const PersonalProjectData: any = {
         [PersonalProjectFields.GithubLink]: "https://github.com/Keegan-Wright/BudgetPlanner",
         [PersonalProjectFields.ImgSrc]: null,
         [PersonalProjectFields.ActiveDevelopment]: true,
-        [PersonalProjectFields.LinkActive]: false
+        [PersonalProjectFields.LinkActive]: true
     },
     [PersonalProjects.GalleryManager]: {
         [PersonalProjectFields.Name]: "Gallery Manager",
