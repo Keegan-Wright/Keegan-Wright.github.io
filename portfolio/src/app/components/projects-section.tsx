@@ -1,10 +1,8 @@
-import {WorkingExperience} from "@/app/components/working-experience";
-import Image from "next/image";
 import {PersonalProject} from "@/app/components/personal-project";
 import {PersonalProjects} from "@/app/content/PersonalProjects";
 
 export default function ProjectsSection() {
-    var personalProjectEnumValues = Object.values(PersonalProjects) as PersonalProjects[];
+    const personalProjectEnumValues = Object.values(PersonalProjects) as PersonalProjects[];
     return (
         <section id="personal-projects" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
                  aria-label="Personal Projects">

@@ -1,6 +1,5 @@
 import {WorkingExperience} from "@/app/components/working-experience";
 import {WorkExperience} from "@/app/content/WorkExperience";
-import {it} from "node:test";
 
 export default function ExperienceSection() {
 

@@ -1,4 +1,3 @@
-import {ApplicationLink} from "@/app/components/application-link";
 import {WorkExperience, WorkExperienceData, WorkExperienceFields} from "@/app/content/WorkExperience";
 
 interface WorkingExperienceProps {
