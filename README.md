@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Personal Portfolio Website
+
+A modern, interactive portfolio website built to showcase professional experience, projects, and skills.
+
+## Project Goals
+
+- Create an engaging digital showcase of professional work and skills
+- Provide a responsive and accessible user experience across all devices
+- Implement smooth, sophisticated animations for enhanced user engagement
+- Establish a central hub for professional connections and opportunities
+- Demonstrate technical proficiency with modern web technologies
+
+## Tech Stack
+
+- **Frontend Framework**: Next.js 15.3.5
+- **UI Library**: React 19.0.0
+- **Language**: TypeScript 5
+- **Styling**: Tailwind CSS 4
+- **Animations**: Framer Motion 12.23.0
+- **Build Tool**: Turbopack (Next.js built-in)
+
+## Main Sections
+
+### About Me
+- Professional background and introduction
+- Key skills and areas of expertise
+
+### Experience
+- Work history and professional achievements
+- Detailed descriptions of roles and responsibilities
+
+### Projects
+- Showcase of significant projects
+- Descriptions, technologies used, and outcomes
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+# Install dependencies
+npm install
+
+# Run development server with Turbopack
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Build for production
+npm run build
+
+# Start production server
+npm start
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Development
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This project follows modern React patterns using Next.js App Router architecture. Components are organized by feature in the `src/app` directory, with reusable UI elements in the components folder.
 
-## Learn More
+## Deployment
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This application is optimized for deployment on Vercel, but can be deployed on any static site hosting platform that supports Next.js applications.
