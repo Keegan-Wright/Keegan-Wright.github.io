@@ -3,13 +3,14 @@
 @import 'tailwindcss/utilities';
 
 .active .nav-indicator {
-    width:4rem;
-    --tw-bg-opacity:1;
-    background-color:rgb(192 132 252/var(--tw-bg-opacity))
+    width: 4rem;
+    --tw-bg-opacity: 1;
+    background-color: rgb(192 132 252/var(--tw-bg-opacity))
 }
+
 .active .nav-text {
-    --tw-text-opacity:1;
-    color:rgb(192 132 252/var(--tw-text-opacity))
+    --tw-text-opacity: 1;
+    color: rgb(192 132 252/var(--tw-text-opacity))
 }
 
 /* Animation helpers */
